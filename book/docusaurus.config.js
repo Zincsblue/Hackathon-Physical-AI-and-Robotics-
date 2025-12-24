@@ -18,7 +18,7 @@ const config = {
   projectName: 'your-repo-name', 
 
   onBrokenLinks: 'warn',
-
+  onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
