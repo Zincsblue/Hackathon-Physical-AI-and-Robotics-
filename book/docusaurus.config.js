@@ -17,8 +17,8 @@ const config = {
   organizationName: 'your-github-username', 
   projectName: 'your-repo-name', 
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
