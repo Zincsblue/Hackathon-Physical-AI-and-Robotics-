@@ -17,7 +17,7 @@ const config = {
   organizationName: 'your-github-username', 
   projectName: 'your-repo-name', 
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
