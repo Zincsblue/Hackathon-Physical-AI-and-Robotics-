@@ -1,0 +1,77 @@
+{
+  "simulation": {
+    "physics": {
+      "gravity": [0, 0, -9.81],
+      "solver_type": "TGS",
+      "min_position_iteration": 1,
+      "max_position_iteration": 25,
+      "min_velocity_iteration": 1,
+      "max_velocity_iteration": 1
+    },
+    "rendering": {
+      "width": 1280,
+      "height": 720,
+      "renderer": "Hydra",
+      "samples_per_pixel": 1,
+      "max_bounces": 8,
+      "texture_memory": 4096
+    },
+    "timing": {
+      "time_step": 0.01,
+      "sub_steps": 1,
+      "max_deprecated_time_step": 0.001,
+      "cfl_coefficient": 0.5
+    }
+  },
+  "robot": {
+    "name": "humanoid_robot",
+    "urdf_path": "urdf/humanoid_isaac_robot.urdf",
+    "start_position": [0.0, 0.0, 1.0],
+    "start_orientation": [0.0, 0.0, 0.0, 1.0],
+    "scale": 1.0
+  },
+  "sensors": {
+    "camera": {
+      "enabled": true,
+      "position": [0.2, 0.0, 1.5],
+      "rotation": [0.0, 0.0, 0.0],
+      "resolution": [640, 480],
+      "fov": 60.0,
+      "sensor_tick": 0.033
+    },
+    "lidar": {
+      "enabled": true,
+      "position": [0.2, 0.0, 1.2],
+      "rotation": [0.0, 0.0, 0.0],
+      "channels": 16,
+      "range": 20.0,
+      "points_per_second": 100000
+    },
+    "imu": {
+      "enabled": true,
+      "position": [0.0, 0.0, 1.0],
+      "rotation": [0.0, 0.0, 0.0]
+    }
+  },
+  "environment": {
+    "scene": "default_room",
+    "lighting": {
+      "type": "dome",
+      "intensity": 3000,
+      "color": [1.0, 1.0, 1.0]
+    },
+    "objects": []
+  },
+  "isaac_ros_bridge": {
+    "enabled": true,
+    "namespace": "isaac",
+    "sensors": {
+      "camera_topic": "/isaac/sensors/camera/image_raw",
+      "lidar_topic": "/isaac/sensors/lidar/points",
+      "imu_topic": "/isaac/sensors/imu"
+    },
+    "robot_control": {
+      "cmd_vel_topic": "/isaac/cmd_vel"
+    }
+  }
+}

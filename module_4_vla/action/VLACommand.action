@@ -1,0 +1,19 @@
+# Action definition for Vision-Language-Action commands
+
+# Goal: A natural language command to be executed by the robot
+string command
+string command_type  # "navigation", "manipulation", "interaction", etc.
+string priority      # "low", "medium", "high"
+
+---
+# Result: Outcome of the command execution
+bool success
+string message
+float32 execution_time
+string[] action_sequence
+
+---
+# Feedback: Progress during execution
+string current_action
+float32 progress_percentage
+string status

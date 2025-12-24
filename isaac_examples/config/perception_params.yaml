@@ -1,0 +1,20 @@
+# Isaac ROS Perception Pipeline Parameters
+
+perception_pipeline_node:
+  ros__parameters:
+    # Hardware acceleration settings
+    use_hardware_acceleration: true
+    cuda_device_id: 0
+    tensorrt_engine_path: ""
+
+    # VSLAM settings
+    enable_vslam: true
+    tracking_rate: 30.0
+
+    # Processing parameters
+    image_buffer_size: 5
+    processing_timeout: 0.1  # seconds
+
+    # Debug settings
+    enable_diagnostics: true
+    diagnostic_frequency: 1.0  # Hz

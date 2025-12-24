@@ -1,0 +1,24 @@
+# Nav2 Configuration for Humanoid Robot
+
+nav2_configurator_node:
+  ros__parameters:
+    # Robot-specific parameters
+    robot_type: "humanoid"
+    footprint_radius: 0.3  # meters
+    step_height: 0.1  # meters
+    max_step_width: 0.4  # meters
+    bipedal_behavior_enabled: true
+
+    # Navigation parameters
+    min_step_spacing: 0.1
+    max_step_spacing: 0.4
+    foot_placement_accuracy: 0.05
+
+    # Costmap parameters
+    inflation_radius: 0.5
+    resolution: 0.05
+
+    # Planner parameters
+    planner_frequency: 1.0  # Hz
+    controller_frequency: 20.0  # Hz
+    max_iterations: 1000

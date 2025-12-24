@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"git branch\")",
+      "Bash(powershell -Command \".specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks\")",
+      "Bash(powershell -Command \"Test-Path ''C:\\\\Users\\\\LENOVO\\\\hack1\\\\isaac_examples''\")",
+      "SlashCommand(/sp.implement)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks)",
+      "Bash(find module_4_vla/src -name \"*.py\" -exec grep -l \"hierarchical\\\\|HTN\\\\|hierarchy\" {} ;)",
+      "Skill(sp.specify)",
+      "Bash(git fetch --all --prune)",
+      "Bash(.specify/scripts/powershell/create-new-feature.ps1 -Json \"Capstone: The Autonomous Humanoid\n\nGoal:\nDemonstrate an end-to-end Physical AI system where a humanoid robot understands a voice command, plans, navigates, and acts autonomously in simulation.\n\nScope:\n- Voice command input\n- LLM-based task planning\n- Vision-based perception\n- Nav2 navigation\n- ROS 2 action execution\n- Simulation using Gazebo or Isaac Sim\n\nSuccess:\n- Show voice → plan → navigate → act flow\n- Integrate Modules 1–4\n- Clear system architecture\n\nConstraints:\n- Docusaurus Markdown\n- Mermaid system diagrams\n- Minimal example snippets\n- Simulation-only\" --json --number 1 --short-name \"autonomous-humanoid\")",
+      "Skill(sp.plan)",
+      "Bash(.specify/scripts/powershell/setup-plan.ps1 -Json)",
+      "Skill(sp.clarify)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly)",
+      "Skill(sp.tasks)",
+      "Bash(.specify/scripts/powershell/check-prerequisites.ps1 -Json)",
+      "Bash(python -c \"\nfrom src.vla.vla_orchestrator import VLASystemOrchestrator\nfrom src.vla.monitoring import initialize_monitoring\n\nprint\\(''Testing VLA System Initialization...''\\)\nvla_system = VLASystemOrchestrator\\(\\)\nprint\\(''✅ VLA System initialized successfully''\\)\n\nprint\\(''Testing basic command processing...''\\)\nresult = vla_system.process_command\\(''Go to the kitchen''\\)\nprint\\(f''✅ Command processed - Success: {result.success}, Execution time: {result.execution_time:.2f}s''\\)\n\nprint\\(''Testing system status...''\\)\nstatus = vla_system.get_system_status\\(\\)\nprint\\(f''✅ System status retrieved - State: {status[\"\"state\"\"]}, Active modules: {len\\(status[\"\"active_modules\"\"]\\)}''\\)\n\nprint\\(''Testing monitoring system...''\\)\nmonitor = initialize_monitoring\\(\\)\nmonitor.log_event\\(monitor.event_logger.LogLevel.INFO, ''TestModule'', ''Test message''\\)\nprint\\(''✅ Monitoring system working''\\)\n\nprint\\(''\\\\n🎉 All systems operational! Module 4 implementation is complete.''\\)\n\")",
+      "Bash(python -c \"\nfrom src.vla.vla_orchestrator import VLASystemOrchestrator\nfrom src.vla.monitoring import initialize_monitoring\n\nprint\\(''Testing VLA System Initialization...''\\)\nvla_system = VLASystemOrchestrator\\(\\)\nprint\\(''SUCCESS: VLA System initialized successfully''\\)\n\nprint\\(''Testing basic command processing...''\\)\nresult = vla_system.process_command\\(''Go to the kitchen''\\)\nprint\\(f''SUCCESS: Command processed - Success: {result.success}, Execution time: {result.execution_time:.2f}s''\\)\n\nprint\\(''Testing system status...''\\)\nstatus = vla_system.get_system_status\\(\\)\nprint\\(f''SUCCESS: System status retrieved - State: {status[\"\"state\"\"]}, Active modules: {len\\(status[\"\"active_modules\"\"]\\)}''\\)\n\nprint\\(''Testing monitoring system...''\\)\nmonitor = initialize_monitoring\\(\\)\nfrom src.vla.monitoring import LogLevel\nmonitor.log_event\\(LogLevel.INFO, ''TestModule'', ''Test message''\\)\nprint\\(''SUCCESS: Monitoring system working''\\)\n\nprint\\(''''\\)\nprint\\(''All systems operational! Module 4 implementation is complete.''\\)\n\")",
+      "Bash(python tests/final_component_tests.py)"
+    ]
+  }
+}

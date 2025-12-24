@@ -1,0 +1,31 @@
+# ROS 2 Topic Contract: Joint State
+# Message Type: sensor_msgs/msg/JointState
+
+topic_name: "joint_states"
+message_type: "sensor_msgs/msg/JointState"
+
+fields:
+  header:
+    stamp:
+      sec: integer
+      nanosec: integer
+      description: "Timestamp of the message"
+    frame_id: string
+    description: "Coordinate frame ID"
+
+  name: array of strings
+  description: "Array of joint names"
+
+  position: array of floats
+  description: "Array of joint positions in radians"
+
+  velocity: array of floats
+  description: "Array of joint velocities in rad/s"
+
+  effort: array of floats
+  description: "Array of joint efforts in Nm"
+
+# Example usage in the educational context:
+# The publisher sends joint state information at a fixed rate
+# The subscriber receives and processes this information
+# Used to demonstrate the publish/subscribe communication pattern

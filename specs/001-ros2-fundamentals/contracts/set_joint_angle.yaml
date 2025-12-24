@@ -1,0 +1,19 @@
+# ROS 2 Service Contract: Set Joint Angle
+# Service Type: example_interfaces/srv/SetBool (simplified for educational purposes)
+
+service_name: "set_joint_angle"
+service_type: "example_interfaces/srv/SetBool"
+
+request:
+  data: boolean
+  description: "True to set joint angle, False otherwise"
+
+response:
+  success: boolean
+  description: "True if the joint angle was set successfully"
+  message: string
+  description: "Status message describing the result"
+
+# Example usage in the educational context:
+# The service demonstrates a simple request-response pattern
+# where a client can request to set a joint angle and receive confirmation

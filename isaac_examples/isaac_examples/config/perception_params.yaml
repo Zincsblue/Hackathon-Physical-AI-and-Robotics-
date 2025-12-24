@@ -1,0 +1,15 @@
+perception_pipeline_node:
+  ros__parameters:
+    use_hardware_acceleration: true
+    cuda_device_id: 0
+    tensorrt_engine_path: ""
+    enable_vslam: true
+    tracking_rate: 30.0
+    confidence_threshold: 0.7
+    max_detection_range: 10.0
+    enable_object_detection: true
+    enable_segmentation: false
+    image_topic: "/isaac/sensors/camera/image_raw"
+    camera_info_topic: "/isaac/sensors/camera/camera_info"
+    output_topic: "/isaac/perception/processed_points"
+    use_sim_time: false

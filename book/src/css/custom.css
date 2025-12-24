@@ -1,0 +1,174 @@
+/* GLOBAL VARIABLES */
+:root {
+  --ifm-color-primary: #00c7ff; /* Cyber Blue */
+  --ifm-color-primary-dark: #00a3d1;
+  --ifm-background-color: #1c1c21; /* Deep Black */
+  --ifm-font-color-base: #e0e0e0;
+}
+
+/* 1. HERO SECTION - The "Spotlight" Look */
+.hero-banner {
+  min-height: 100vh; /* Full Screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 20px;
+  
+  /* BACKGROUND: Deep Black + Blue Spotlight from Top + Grid */
+  background-color: #0d0a33;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(16, 61, 76, 0.722) 0%, transparent 60%), /* The Spotlight */
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); /* Subtle Grid */
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* The Glowing Ring Effect (Optional background decoration) */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 199, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 2. TYPOGRAPHY - Perfectly Aligned */
+.hero-content-wrapper {
+  max-width: 900px; /* Constrain width so text looks good */
+  z-index: 10;
+  margin-top: -50px; /* Visual balance to offset navbar */
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00c7ff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  display: inline-block;
+  border: 1px solid rgba(0, 199, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(0, 199, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+.hero-title {
+  font-size: 4.5rem; /* Massive Title */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 25px;
+  color: white;
+  text-shadow: 0 0 30px rgba(0, 199, 255, 0.3); /* Soft Glow */
+}
+
+.hero-title span {
+  background: linear-gradient(90deg, #fff, #00c7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: #a0aabf;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3. BUTTONS - Cyber Style */
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cta-button {
+  background: #00c7ff;
+  color: #000;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 199, 255, 0.4);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 199, 255, 0.8);
+  color: black;
+  text-decoration: none;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background: white;
+  color: black;
+  border-color: white;
+  text-decoration: none;
+}
+
+/* 4. FEATURE GRID (Below Hero) */
+.features-section {
+  padding: 6rem 2rem;
+  background-color: #050508;
+  position: relative;
+  z-index: 2;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: #00c7ff;
+  box-shadow: 0 0 30px rgba(0, 199, 255, 0.15);
+  background: rgba(0, 199, 255, 0.02);
+}
+
+.feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; display: block;}
+.feature-title { font-size: 1.4rem; font-weight: bold; color: #fff; margin-bottom: 0.8rem; }
+.feature-desc { color: #8892b0; line-height: 1.6; font-size: 0.95rem; }

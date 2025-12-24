@@ -1,0 +1,164 @@
+# API Contract: Voice Command Processing
+# Feature: 005-autonomous-humanoid
+# Date: 2025-12-19
+
+openapi: 3.0.0
+info:
+  title: Voice Command Processing API
+  description: API for processing voice commands in the Autonomous Humanoid Capstone
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /voice/command:
+    post:
+      summary: Process a voice command
+      description: Accepts audio data and processes it as a command for the humanoid robot
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                audio:
+                  type: string
+                  format: binary
+                  description: Audio file containing the voice command
+                language:
+                  type: string
+                  default: "en"
+                  description: Language code for the voice command
+      responses:
+        '200':
+          description: Command processed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoiceCommandResponse'
+        '400':
+          description: Invalid audio data or command
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Processing error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /status:
+    get:
+      summary: Get system status
+      description: Returns the current status of the voice processing system
+      responses:
+        '200':
+          description: System status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+
+components:
+  schemas:
+    VoiceCommandResponse:
+      type: object
+      properties:
+        command_id:
+          type: string
+          description: Unique identifier for the processed command
+        transcribed_text:
+          type: string
+          description: Text representation of the spoken command
+        confidence_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence level of speech recognition
+        task_plan:
+          $ref: '#/components/schemas/TaskPlan'
+        status:
+          type: string
+          enum: [RECEIVED, PROCESSING, PROCESSED, FAILED]
+          description: Processing status of the command
+
+    TaskPlan:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Unique identifier for the task plan
+        action_sequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/Action'
+        reasoning:
+          type: string
+          description: Explanation of the planning decisions
+        estimated_duration:
+          type: number
+          format: float
+          description: Estimated time to complete the plan in seconds
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence in the plan validity
+
+    Action:
+      type: object
+      properties:
+        action_id:
+          type: string
+          description: Unique identifier for the action
+        action_type:
+          type: string
+          enum: [NAVIGATE, DETECT_OBJECT, MANIPULATE, SPEAK, WAIT]
+          description: Type of action to execute
+        parameters:
+          type: object
+          description: Action-specific parameters
+        description:
+          type: string
+          description: Human-readable description of the action
+        estimated_duration:
+          type: number
+          format: float
+          description: Estimated time to complete the action in seconds
+
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Human-readable error message
+        details:
+          type: object
+          description: Additional error details
+
+    StatusResponse:
+      type: object
+      properties:
+        system_status:
+          type: string
+          enum: [READY, PROCESSING, ERROR, MAINTENANCE]
+          description: Current status of the system
+        active_commands:
+          type: integer
+          description: Number of active voice commands being processed
+        last_command_time:
+          type: string
+          format: date-time
+          description: Timestamp of the last processed command
+        model_loaded:
+          type: boolean
+          description: Whether the ASR model is loaded and ready

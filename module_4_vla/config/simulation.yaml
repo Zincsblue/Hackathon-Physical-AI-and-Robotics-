@@ -1,0 +1,19 @@
+# Simulation Configuration for VLA Module
+
+# Gazebo Simulation Settings
+GAZEBO_WORLD: "empty_world"
+GAZEBO_ROBOT_MODEL: "unitree_h1"
+
+# Simulation Parameters
+SIMULATION_FREQ: 50  # Hz
+MAX_SIMULATION_TIME: 3600  # seconds
+
+# Robot Configuration
+ROBOT_NAME: "humanoid_robot"
+ROBOT_NAMESPACE: "/vla_robot"
+
+# Topic Names
+AUDIO_TOPIC: "/audio_input"
+IMAGE_TOPIC: "/camera/image_raw"
+COMMAND_TOPIC: "/vla/command"
+ACTION_TOPIC: "/vla/action"

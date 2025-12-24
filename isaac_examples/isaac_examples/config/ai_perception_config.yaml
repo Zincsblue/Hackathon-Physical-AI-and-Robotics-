@@ -1,0 +1,23 @@
+ai_perception_node:
+  ros__parameters:
+    model_path: ""
+    confidence_threshold: 0.5
+    use_hardware_acceleration: true
+    cuda_device_id: 0
+    enable_object_detection: true
+    enable_segmentation: false
+    max_detection_range: 10.0
+    tracking_enabled: true
+    tracking_algorithm: "klt"
+    input_image_topic: "/isaac/sensors/camera/image_raw"
+    output_result_topic: "/isaac/ai_perception/results"
+    use_sim_time: false
+    # AI model specific parameters
+    model_type: "tensorrt"  # Options: tensorrt, onnx, pytorch
+    model_precision: "fp16"  # Options: fp32, fp16, int8
+    batch_size: 1
+    max_workspace_size: 1073741824  # 1GB in bytes
+    # Performance parameters
+    processing_rate: 30.0  # Hz
+    enable_async_processing: true
+    memory_pool_size: 100
